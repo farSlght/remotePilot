@@ -7,20 +7,19 @@
     tools:context=".controls.MainActivity"
     tools:layout_editor_absoluteY="25dp">
 
-
-    <SeekBar
+    <com.globallogic.remotepilot.utils.VerticalSeekBar.VerticalSeekBar
         android:id="@+id/sb_leftThrottle"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="0dp"
-        android:minWidth="300dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:max="10"
+        android:minWidth="300dp"
         android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/sb_speedThrottle"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--<TextView-->
@@ -33,9 +32,9 @@
     <!--app:layout_constraintRight_toRightOf="parent"-->
     <!--app:layout_constraintTop_toTopOf="parent" />-->
 
-    <SeekBar
+    <com.globallogic.remotepilot.utils.VerticalSeekBar.VerticalSeekBar
         android:id="@+id/sb_rightThrottle"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -43,17 +42,22 @@
         android:max="10"
         android:minWidth="300dp"
         android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/sb_speedThrottle"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.constraint.Guideline
+<!--    <android.support.constraint.Guideline
         android:id="@+id/guideline_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="517dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47000003" />-->
 
     <!--<TextView-->
     <!--android:id="@+id/tv_rightVal"-->
@@ -66,22 +70,23 @@
     <!--app:layout_constraintTop_toTopOf="parent" />-->
 
 
-    <SeekBar
+    <com.globallogic.remotepilot.utils.VerticalSeekBar.VerticalSeekBar
         android:id="@+id/sb_speedThrottle"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="0dp"
-        android:minWidth="300dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:max="10"
+        android:minWidth="300dp"
         android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/sb_rightThrottle"
         app:layout_constraintStart_toEndOf="@id/sb_leftThrottle"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.63" />
 
     <TextView
         android:id="@+id/tv_speedVal"
@@ -95,6 +100,6 @@
         android:text="Value: "
         app:layout_constraintEnd_toEndOf="@+id/sb_speedThrottle"
         app:layout_constraintStart_toStartOf="@+id/sb_speedThrottle"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_bottom" />
+        app:layout_constraintTop_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
