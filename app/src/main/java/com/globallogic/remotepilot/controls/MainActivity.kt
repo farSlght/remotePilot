@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), Contract.View, SeekBar.OnSeekBarChange
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter = ControlsPresenter()
-        seekBar.setOnSeekBarChangeListener(this)
+        sb_speedThrottle.setOnSeekBarChangeListener(this)
     }
 
     override fun onStart() {
@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity(), Contract.View, SeekBar.OnSeekBarChange
     }
 
     override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-        tv_value.text = "Value: $p1"
+        tv_speedVal.text = "Value: $p1"
         when (p0?.id) {
-            R.id.seekBar -> mThrottleValue.onNext(p1)
+            R.id.sb_speedThrottle -> mThrottleValue.onNext(p1)
             /// TODO: add other seekBars
         }
     }
