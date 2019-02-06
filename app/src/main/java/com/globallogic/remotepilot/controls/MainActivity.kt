@@ -39,10 +39,19 @@ class MainActivity : AppCompatActivity(), Contract.View, SeekBar.OnSeekBarChange
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, value: Int, p2: Boolean) {
-        tv_speedVal.text = "Value: $value"
         when (seekBar?.rootView?.id) {
-            R.id.speed -> mThrottleValue.onNext(value)
-            /// TODO: add other seekBars
+            R.id.speed -> {
+                mThrottleValue.onNext(value)
+                tv_speedVal.text = "Value: $value"
+            }
+            R.id.leftSteering -> {
+                mLeftValue.onNext(value)
+                tv_leftVal.text = "Value: $value"
+            }
+            R.id.rightSteering -> {
+                mRightValue.onNext(value)
+                tv_rightVal.text = "Value: $value"
+            }
         }
     }
 

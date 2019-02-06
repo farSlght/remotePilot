@@ -17,6 +17,19 @@
         android:layout_marginBottom="50dp"
         layout="@layout/sb_vertical" />
 
+    <TextView
+        android:id="@+id/tv_speedVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Value: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/speed"
+        app:layout_constraintStart_toStartOf="@+id/speed"
+        app:layout_constraintTop_toBottomOf="@+id/speed" />
+
     <include
         android:id="@+id/leftSteering"
         android:layout_width="50dp"
@@ -26,6 +39,21 @@
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="50dp"
         layout="@layout/sb_vertical" />
+
+    <TextView
+        android:id="@+id/tv_leftVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Value: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/leftSteering"
+        app:layout_constraintStart_toStartOf="@+id/leftSteering"
+        app:layout_constraintTop_toBottomOf="@+id/leftSteering" />
 
     <include
         android:id="@+id/rightSteering"
@@ -37,9 +65,8 @@
         android:layout_marginRight="10dp"
         layout="@layout/sb_vertical" />
 
-
     <TextView
-        android:id="@+id/tv_speedVal"
+        android:id="@+id/tv_rightVal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -49,7 +76,9 @@
         android:layout_marginTop="8dp"
         android:text="Value: "
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/rightSteering"
+        app:layout_constraintStart_toStartOf="@+id/rightSteering"
+        app:layout_constraintTop_toBottomOf="@+id/rightSteering" />
+
 
 </android.support.constraint.ConstraintLayout>
