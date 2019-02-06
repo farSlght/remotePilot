@@ -1,21 +1,16 @@
 package com.globallogic.remotepilot.utils.VerticalSeekBar;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 
 /*
  *  This ViewGroup contains a single view, which will be rotated by 90 degrees counterclockwise.
  */
 
-public class SeekBarRotator extends FrameLayout {
+public class SeekBarRotator extends ViewGroup {
     public SeekBarRotator(Context context) {
         super(context);
     }
@@ -25,11 +20,6 @@ public class SeekBarRotator extends FrameLayout {
     public SeekBarRotator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-// to delete
-//    public SeekBarRotator(Context context, AttributeSet attrs, int defStyleAttr,
-//                          int defStyleRes) {
-//        super(context, attrs, defStyleAttr, defStyleRes);
-//    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {

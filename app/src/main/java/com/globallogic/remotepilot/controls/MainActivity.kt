@@ -8,6 +8,7 @@ import com.globallogic.remotepilot.R
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.sb_vertical.view.*
 
 class MainActivity : AppCompatActivity(), Contract.View, SeekBar.OnSeekBarChangeListener {
 
@@ -22,7 +23,9 @@ class MainActivity : AppCompatActivity(), Contract.View, SeekBar.OnSeekBarChange
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter = ControlsPresenter()
-        sb_speedThrottle.setOnSeekBarChangeListener(this)
+        speed.throttle.setOnSeekBarChangeListener(this)
+        leftSteering.throttle.setOnSeekBarChangeListener(this)
+        rightSteering.throttle.setOnSeekBarChangeListener(this)
     }
 
     override fun onStart() {
@@ -35,10 +38,10 @@ class MainActivity : AppCompatActivity(), Contract.View, SeekBar.OnSeekBarChange
         presenter.detachView()
     }
 
-    override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-        tv_speedVal.text = "Value: $p1"
-        when (p0?.id) {
-            R.id.sb_speedThrottle -> mThrottleValue.onNext(p1)
+    override fun onProgressChanged(seekBar: SeekBar?, value: Int, p2: Boolean) {
+        tv_speedVal.text = "Value: $value"
+        when (seekBar?.rootView?.id) {
+            R.id.speed -> mThrottleValue.onNext(value)
             /// TODO: add other seekBars
         }
     }
