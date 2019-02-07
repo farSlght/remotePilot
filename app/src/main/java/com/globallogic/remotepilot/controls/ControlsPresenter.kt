@@ -3,10 +3,10 @@ package com.globallogic.remotepilot.controls
 class ControlsPresenter: Contract.Presenter{
 
     lateinit var view: Contract.View
-    lateinit var interactor: Interactor
+    lateinit var controlsInteractor: ControlsInteractor
 
     constructor(){
-        interactor = Interactor()
+        controlsInteractor = ControlsInteractor()
     }
 
     override fun attachView(view: Contract.View) {
@@ -21,7 +21,7 @@ class ControlsPresenter: Contract.Presenter{
         // cancel any network activity
     }
 
-    override fun transferSpeedValue(value: Number) = interactor.transferSpeed(value)
+    override fun transferSpeedValue(value: Number) = controlsInteractor.transferSpeed(value)
 
 
     override fun transferLeftValue(value: Number) {

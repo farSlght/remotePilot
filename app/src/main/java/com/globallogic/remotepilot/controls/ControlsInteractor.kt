@@ -2,7 +2,7 @@ package com.globallogic.remotepilot.controls
 
 import com.globallogic.remotepilot.data.ControlsModel
 
-class Interactor : Contract.Interactor{
+class ControlsInteractor : Contract.Interactor{
 
     private lateinit var controlsModel: ControlsModel
 
