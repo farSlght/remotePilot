@@ -22,6 +22,7 @@ public class ControlsModel {
     public void modifySpeed(int throttleValue){
         controlsDataBitSet = controlsDataBitSet ^ throttleValue;
         Log.d("Modified controls: ", Integer.toBinaryString(throttleValue));
+        transferControls();
     }
 
     public int getThrottleValue() {
