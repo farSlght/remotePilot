@@ -15,6 +15,12 @@ class ControlsPresenter: Contract.Presenter{
         view.speedThrottleChanged(Integer::class.java)?.subscribe {
             it -> transferSpeedValue(it)
         }
+        view.leftThrottleChanged(Integer::class.java)?.subscribe {
+            it -> transferLeftValue(it)
+        }
+        view.rightThrottleChanged(Integer::class.java)?.subscribe {
+            it -> transferRightValue(it)
+        }
     }
 
     override fun detachView() {
@@ -23,12 +29,7 @@ class ControlsPresenter: Contract.Presenter{
 
     override fun transferSpeedValue(value: Number) = controlsInteractor.transferSpeed(value)
 
+    override fun transferLeftValue(value: Number) = controlsInteractor.transferLeftVal(value)
 
-    override fun transferLeftValue(value: Number) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun transferRightValue(value: Number) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun transferRightValue(value: Number) = controlsInteractor.transferRightVal(value)
 }

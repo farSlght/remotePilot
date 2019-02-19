@@ -20,5 +20,7 @@ interface Contract{
 
     interface Interactor {
         fun transferSpeed(value: Number)
+        fun transferLeftVal(value: Number)
+        fun transferRightVal(value: Number)
     }
 }

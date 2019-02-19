@@ -21,7 +21,6 @@ public class ControlsModel {
 
     public boolean transferControls() {
 
-        //TODO generate audio and transfer via MiniJack
         byte bytes[] = ByteBuffer.allocate(4).putInt(controlsDataBitSet).array();
         int bufsize = AudioTrack.getMinBufferSize(8000,
                 AudioFormat.CHANNEL_OUT_MONO,
@@ -30,45 +29,26 @@ public class ControlsModel {
                 8000, AudioFormat.CHANNEL_OUT_MONO,
                 AudioFormat.ENCODING_PCM_16BIT, bufsize,
                 AudioTrack.MODE_STREAM);
-        trackplayer.play();
+        trackplayer.play();     /// TODO: check out "java.lang.IllegalStateException: play() called on uninitialized AudioTrack." on high values of throttles
         trackplayer.write(bytes, 0, bytes.length);
-        return false;
-    }
-
-    public byte[] intToByteArray() {
-
-        Log.d(TAG, "intToByteArray: ");
-
-//        Log.d(TAG+"binaryString", String.valueOf(Byte.decode(binary)));
-
-        byte bytes[] = ByteBuffer.allocate(4).putInt(controlsDataBitSet).array();
         for (byte b : bytes) {
             Log.d(TAG, String.valueOf(Integer.toBinaryString(b & 0xFF)));
         }
-
-//  region manual type convertion
-//        String binary = Integer.toBinaryString(controlsDataBitSet);
-//        Log.d(TAG + "Modified controls: ", binary);
-//
-//        Log.d(TAG+"1", String.valueOf((byte) controlsDataBitSet >>> 24));
-//        Log.d(TAG+"2", String.valueOf((byte) controlsDataBitSet >>> 16));
-//        Log.d(TAG+"3", String.valueOf((byte) controlsDataBitSet >>> 8));
-//        Log.d(TAG+"4", String.valueOf((byte) controlsDataBitSet));
-//        Log.d(TAG, "end of intToByteArray\n\n");
-//
-//        return new byte[] {
-//                (byte)(controlsDataBitSet >>> 24),
-//                (byte)(controlsDataBitSet >>> 16),
-//                (byte)(controlsDataBitSet >>> 8),
-//                (byte)controlsDataBitSet
-//        };
-//  endregion
-        return bytes;
+        return false;
     }
 
-    public void modifySpeed(int throttleValue){
-        controlsDataBitSet = controlsDataBitSet | throttleValue;
-        Log.d(TAG+"New speed: ", Integer.toBinaryString(throttleValue));
+    public void modifyControls(int value, ControlsType type) {
+
+        switch (type) {
+            case SPEED: throttleValue = value;
+            break;
+            case LEFT: leftEngine = value;
+            break;
+            case RIGHT: rightEngine = value;
+            break;
+        }
+        controlsDataBitSet = 0;
+        controlsDataBitSet = throttleValue | leftEngine | rightEngine;
         transferControls();
     }
 
